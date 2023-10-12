@@ -34,3 +34,6 @@ function matchingStrings(strings, queries) {
 }
 
 matchingStrings(strings, query);
+
+// Time complexity O(n + m)
+// Space complexity O(n)
