@@ -44,3 +44,15 @@ function twoArrays(k, A, B) {
   });
   return ans;
 }
+
+// Hmmm this one works, I can't see how the logic is different though.
+function twoArrays(k, A, B) {
+  let inverseA = A.sort((a, b) => a - b);
+  let inverseB = B.sort((a, b) => b - a);
+  for (let i in inverseA) {
+    if (inverseA[i] + inverseB[i] < k) {
+      return "NO";
+    }
+  }
+  return "YES";
+}
