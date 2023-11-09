@@ -13,7 +13,7 @@ const binarySearch = (sorted, item) => {
 
   while (low <= high) {
     let mid = Math.floor((low + high) / 2);
-    
+
     let guess = sorted[mid];
 
     if (guess === item) return mid;
@@ -30,3 +30,26 @@ console.log(binarySearch(arr, 3));
 
 // Complexity
 // 0(log n);
+
+// recursive and base case -
+const binarySearchRecursive = (sortedArr, target) => {
+  console.log(sortedArr);
+  console.log(sortedArr.length);
+  // base case
+  if (sortedArr.length < 2) return sortedArr;
+
+  const low = 0;
+  const high = sortedArr.length - 1;
+  const mid = Math.floor((low + high) / 2);
+
+  if (sortedArr[mid] === target) return mid;
+
+  //recursive case
+  // console.log(sortedArr.slice(mid, sortedArr.length), target)
+  if (sortedArr[mid] > target) {
+    return binarySearchRecursive(sortedArr.slice(0, mid), target);
+  }
+  return binarySearchRecursive(sortedArr.slice(mid), target);
+};
+
+console.log(binarySearchRecursive([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12], 11));
